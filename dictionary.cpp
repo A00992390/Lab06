@@ -98,5 +98,6 @@ void dictionary::addWord() {
         mp.insert(pair<string, string>(word, def));
         of << word << "-" << def << "\n";
         of.close();
+        cout << "\"" << word << "\" is addedd to the dictionary!\n\n";
     }
 }
