@@ -1,0 +1,1 @@
+C:/cygwin64/bin/g++.exe -g  -Wl,--enable-auto-import CMakeFiles/Lab06.dir/main.cpp.o CMakeFiles/Lab06.dir/dictionary.cpp.o  -o Lab06.exe -Wl,--out-implib,libLab06.dll.a -Wl,--major-image-version,0,--minor-image-version,0 
