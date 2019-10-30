@@ -5,7 +5,7 @@
 #include "dictionary.hpp"
 // read the file then store word and definition into map mp
 void dictionary::readFile() {
-    f.open("../dictionary.txt");
+    f.open("../dic.txt");
     if (!f.is_open()) {
         cerr << "Unable to open file" << endl;
         exit(1);
@@ -30,7 +30,7 @@ void dictionary::choice() {
     int choice;
     while(choice != 4) {
         // print menu
-        cout << "1 - Print dictionary.txt\n"
+        cout << "1 - Print dic.txt\n"
              << "2 - Find word definition\n"
              << "3 - Enter new word and definition\n"
              << "4 - Exit\n";
@@ -41,21 +41,21 @@ void dictionary::choice() {
             cout << "Not an option, enter a choice between 1 and 4!  Enter a choice: ";
             cin >> choice;
         }
-        // choose to print the dictionary.txt
+        // choose to print the dic.txt
         if(choice==1) {
-            cout << "\nHere's the full version of dictionary.txt: \n";
+            cout << "\nHere's the full version of dic.txt: \n";
             printDic();
             cout <<"\n";
-        } else if(choice==2) {  // choice to find a certain word in the dictionary.txt
+        } else if(choice==2) {  // choice to find a certain word in the dic.txt
             findWord();
-        } else if(choice==3){ // choice to add a word into dictionary.txt if it doesnt exist
+        } else if(choice==3){ // choice to add a word into dic.txt if it doesnt exist
             addWord();
         }
         cin.clear();
     }
     cout << "Bye, BB" << endl;
 }
-// find word in dictionary.txt
+// find word in dic.txt
 void dictionary::findWord() {
     string word;
     cout << "Enter the word: ";
@@ -68,7 +68,7 @@ void dictionary::findWord() {
         cin.clear();
     }
     else
-        cout << "There's no \"" << word << "\" in dictionary.txt\n\n";
+        cout << "There's no \"" << word << "\" in dic.txt\n\n";
 
 }
 // if the word exist
@@ -79,8 +79,9 @@ bool dictionary::isExist(string &s) {
     }
     return false;
 }
-// add word and definition if it doesnt exist in the dictionary.txt
+// add word and definition if it doesnt exist in the dic.txt
 void dictionary::addWord() {
+    ofstream of("../dic.txt", std::ios_base::app | std::ios_base::out);
     string word, def;
     cout << "Enter the word: ";
     cin >> word;
@@ -91,8 +92,6 @@ void dictionary::addWord() {
         cout << "Enter the definition for \"" << word << "\" ";
         cin >> def;
         mp.insert(pair<string, string>(word, def));
-        string newWord = word + "-" + def;
-        cout << newWord<<"\n\n";
-        cin.clear();
+        of << word << "-" << def << "\n";
     }
 }

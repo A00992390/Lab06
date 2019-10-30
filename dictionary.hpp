@@ -26,11 +26,11 @@ public:
     void printDic();
     // show menu and pick choice
     void choice();
-    // find word in dictionary.txt
+    // find word in dic.txt
     void findWord();
     // if the word exist
     bool isExist(string&);
-    // add word and definition if it doesnt exist in the dictionary.txt
+    // add word and definition if it doesnt exist in the dic.txt
     void addWord();
 };
 
