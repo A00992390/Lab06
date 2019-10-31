@@ -42,14 +42,18 @@ void dictionary::choice() {
         // promote entry
         if(cin >> choice) {
             // choose to print the dictionary.txt
-            if(choice==1) {
-                cout << "\nHere's the full version of dictionary.txt: \n";
-                printDic();
-                cout <<"\n";
-            } else if(choice==2) {  // choice to find a certain word in the dictionary.txt
-                findWord();
-            } else if(choice==3){ // choice to add a word into dictionary.txt if it doesnt exist
-                addWord();
+            switch(choice) {
+                case 1:
+                    cout << "\nHere's the full version of dictionary.txt: \n";
+                    printDic();
+                    cout <<"\n";
+                    break;
+                case 2:
+                    findWord(); // choice to find a certain word in the dictionary.txt
+                    break;
+                case 3:
+                    addWord(); // choice to add a word into dictionary.txt if it doesnt exist
+                    break;
             }
         }  else {
             cin.clear();
