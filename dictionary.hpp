@@ -1,5 +1,9 @@
 //
-// Created by msi on 10/28/2019.
+// Created by Kang on 10/28/2019.
+// A class that reads dictionary.txt then store the word and definition
+// into a map.
+// User can select option from the menu to print the whole dictionary, search for a word
+// and add a new word and definition into the dictionary.
 //
 #include <iostream>
 #include <fstream>

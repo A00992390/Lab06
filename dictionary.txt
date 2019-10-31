@@ -7,3 +7,6 @@ Jovan-1
 hello-a greeting message
 c++-a object oriented programming language
 bottle-a container that holds liquid
+man-a grown as male
+Eminem-The greatest rapper of all time :)
+nihao-hello in Chinese
