@@ -5,6 +5,7 @@
 // User can select option from the menu to print the whole dictionary, search for a word
 // and add a new word and definition into the dictionary.
 //
+#include <climits>
 #include "dictionary.hpp"
 // read the file then store word and definition into map mp
 void dictionary::readFile() {
@@ -39,22 +40,22 @@ void dictionary::choice() {
              << "4 - Exit\n";
         cout << "Enter a choice: ";
         // promote entry
-        cin >> choice;
-        while(choice <= 0 || choice > 4) {
-            cout << "Not an option, enter a choice between 1 and 4!  Enter a choice: ";
-            cin >> choice;
+        if(cin >> choice) {
+            // choose to print the dictionary.txt
+            if(choice==1) {
+                cout << "\nHere's the full version of dictionary.txt: \n";
+                printDic();
+                cout <<"\n";
+            } else if(choice==2) {  // choice to find a certain word in the dictionary.txt
+                findWord();
+            } else if(choice==3){ // choice to add a word into dictionary.txt if it doesnt exist
+                addWord();
+            }
+        }  else {
+            cin.clear();
+            cin.ignore(INT_MAX,'\n');
+            choice = 5;
         }
-        // choose to print the dictionary.txt
-        if(choice==1) {
-            cout << "\nHere's the full version of dictionary.txt: \n";
-            printDic();
-            cout <<"\n";
-        } else if(choice==2) {  // choice to find a certain word in the dictionary.txt
-            findWord();
-        } else if(choice==3){ // choice to add a word into dictionary.txt if it doesnt exist
-            addWord();
-        }
-        cin.clear();
     }
     cout << "Bye, BB" << endl;
     f.close(); // close file
@@ -95,7 +96,7 @@ void dictionary::addWord() {
         // open file for reading, point to the nextLine
         ofstream of("../dictionary.txt", std::ios_base::app | std::ios_base::out);
         cout << "Enter the definition for \"" << word << "\" \n";
-        cin.ignore(1000,'\n');
+        cin.ignore(INT_MAX,'\n');
         getline(cin, def);
         mp.insert(pair<string, string>(word, def));
         of << word << "-" << def << "\n";

@@ -10,3 +10,6 @@ bottle-a container that holds liquid
 man-a grown as male
 Eminem-The greatest rapper of all time :)
 nihao-hello in Chinese
+KANG-my name
+blah-f f dfd fdfdfd
+haha-laughing
